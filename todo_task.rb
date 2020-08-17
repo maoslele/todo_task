@@ -1,9 +1,9 @@
 class Task
   attr_accessor :id
   attr_reader :name, :detail
-  @@count = 0  
+  @@count = 0
 
-  def initialize(**params)  
+  def initialize(**params)
     @id = @@count += 1
     @name = params[:name]
     @detail = params[:detail]
@@ -25,16 +25,16 @@ class Todo
     puts "------タスク一覧------"
     @tasks.each do |task|
       puts "ID: #{task.id}, タスク名：#{task.name} , タスク内容：#{task.detail}"
-    end 
+  end
   end
    def delete_task(id:)
     if @tasks.find{ |task| task.id == id}
-       @tasks.delete_if{ |task| task.id == id}
+      @tasks.delete_if{ |task| task.id == id}
       puts "- タスク(ID:#{id})を削除しました"
     else
       #do nothing
       puts "! 指定されたタスクIDが見つかりません"
-     end
+    end
    end
 end
 
